@@ -21,6 +21,11 @@ function finish_build(){
 	cd $TOP_DIR
 }
 
+function move_image(){
+	./mv_image.sh
+	echo "move image succeeded."
+}
+
 function check_config(){
 	unset missing
 	for var in $@; do
@@ -1390,6 +1395,8 @@ function build_allsave(){
 	build_all
 	build_firmware
 	build_updateimg
+
+	move_image
 	# build_save
 
 	# build_check_power_domain
